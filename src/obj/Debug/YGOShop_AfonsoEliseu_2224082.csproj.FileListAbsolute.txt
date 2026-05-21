@@ -1,0 +1,17 @@
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.AssemblyReference.cache
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Login.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Properties.Resources.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.GenerateResource.cache
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.CoreCompileInputs.cache
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe.config
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.pdb
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.exe
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.pdb
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.exe.config
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.CreateA.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Menu.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Coleção.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Comprar.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Definições.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Vendas.resources
