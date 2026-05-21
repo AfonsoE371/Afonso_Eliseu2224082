@@ -19,6 +19,13 @@ namespace YGOShop_AfonsoEliseu_2224082
         {
 
             InitializeComponent();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+            if (textBox3 != null)
+                textBox3.UseSystemPasswordChar = true;
 
         }
 
@@ -37,17 +44,26 @@ namespace YGOShop_AfonsoEliseu_2224082
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Email = @Email AND PasswordHash = @Password", conn);
+
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Password", password);
                     int result = (int)cmd.ExecuteScalar();
                     if (result > 0)
                     {
-                        MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Hide();
-                        Menu open = new Menu();
-                        open.Show();
+                        MenuUsers menuUsers = new MenuUsers(textBox2.Text, textBox3.Text);
+                        if (menuUsers.GetUsername(email, password) == 0)
+                        {
+                            MessageBox.Show("Usuário não possui username", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Hide();
+                            Menu open = new Menu();
+                            open.Show();
+                        }
                     }
-                    else
+                    else if (result == 0)
                     {
                         MessageBox.Show("Email ou password incorretos.", "Erro de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -65,10 +81,7 @@ namespace YGOShop_AfonsoEliseu_2224082
             Application.Exit();
         }
 
-        private void Login_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -105,10 +118,14 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-             
-            // Absolute folder you provided
+            see = !see;
+
+            // Quando see == true -> olho aberto e password visível
+            if (textBox3 != null)
+                textBox3.UseSystemPasswordChar = !see;
+
             string folder = @"C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\Imagens";
-            string fileName = see ? "EyeClosed.png" : "Eye.png";
+            string fileName = see ? "Eye.png" : "EyeClosed.png";
             string path = System.IO.Path.Combine(folder, fileName);
 
             if (!System.IO.File.Exists(path))
@@ -117,17 +134,19 @@ namespace YGOShop_AfonsoEliseu_2224082
                 return;
             }
 
-            // Load image into a new Bitmap (prevents file locking)
+            // Carrega a imagem sem bloquear o ficheiro
             var previous = pictureBox3.Image;
-            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read))
+            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read))
+            using (var img = Image.FromStream(fs))
             {
-                using (var tmp = Image.FromStream(fs))
-                {
-                    pictureBox3.Image = new Bitmap(tmp);
-                }
+                pictureBox3.Image = new Bitmap(img);
             }
             previous?.Dispose();
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+
+
+
+
         }
     }
 }

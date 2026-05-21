@@ -79,7 +79,9 @@ namespace YGOShop_AfonsoEliseu_2224082
                     }
                     MessageBox.Show("Conta Criada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sair = false;
-
+                this.Close();
+                Login login = new Login();
+                login.Show();
                 }
                 catch (SqlException ex)
                 {
@@ -93,12 +95,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                     }
                 }
             }
-            if (sair == false)
-            {
-                this.Close();
-                Login login = new Login();
-                login.Show();
-            }
+           
         }
 
 

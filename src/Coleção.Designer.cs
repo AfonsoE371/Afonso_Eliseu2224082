@@ -1,6 +1,6 @@
 ﻿namespace YGOShop_AfonsoEliseu_2224082
 {
-    partial class Comprar
+    partial class Coleção
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,13 @@
         {
             this.SuspendLayout();
             // 
-            // Comprar
+            // Coleção
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 539);
-            this.Name = "Comprar";
-            this.Text = "Comprar";
+            this.Name = "Coleção";
+            this.Text = "Coleção";
             this.ResumeLayout(false);
 
         }

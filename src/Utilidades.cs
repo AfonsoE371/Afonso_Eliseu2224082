@@ -18,6 +18,8 @@ namespace YGOShop_AfonsoEliseu_2224082
             GraphicsPath path = new GraphicsPath();
             path.AddEllipse(0, 0, pb.Width, pb.Height);
             pb.Region = new Region(path);
+
         }
+
     }
 }

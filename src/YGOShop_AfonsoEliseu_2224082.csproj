@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coleção.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Coleção.Designer.cs">
+      <DependentUpon>Coleção.cs</DependentUpon>
+    </Compile>
     <Compile Include="Comprar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,12 +70,6 @@
     <Compile Include="Definições.Designer.cs">
       <DependentUpon>Definições.cs</DependentUpon>
     </Compile>
-    <Compile Include="Lista.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Lista.Designer.cs">
-      <DependentUpon>Lista.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +82,14 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuUsers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades.cs" />
     <Compile Include="Vendas.cs">
       <SubType>Form</SubType>
@@ -91,11 +97,17 @@
     <Compile Include="Vendas.Designer.cs">
       <DependentUpon>Vendas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Coleção.resx">
+      <DependentUpon>Coleção.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Comprar.resx">
+      <DependentUpon>Comprar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateA.resx">
       <DependentUpon>CreateA.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Lista.resx">
-      <DependentUpon>Lista.cs</DependentUpon>
+    <EmbeddedResource Include="Definições.resx">
+      <DependentUpon>Definições.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -108,15 +120,13 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vendas.resx">
+      <DependentUpon>Vendas.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -149,6 +159,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\Book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\Default Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\Default_Image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,6 +19,8 @@ namespace YGOShop_AfonsoEliseu_2224082
             pictureBox1.Load("https://images.ygoprodeck.com/images/cards_cropped/46396218.jpg");
             Utilidades utilidades = new Utilidades();
             utilidades.arredondar(pictureBox1);
+
+            
         }
 
         private void Menu_Load(object sender, EventArgs e)
@@ -34,7 +36,16 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            Comprar comprar = new Comprar();
+            comprar.Show(); 
+            this.Hide();
+        }
 
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            Definições definições = new Definições();
+            definições.Show();
+            this.Hide();
         }
     }
 }
