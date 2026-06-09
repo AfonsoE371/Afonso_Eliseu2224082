@@ -60,6 +60,7 @@ CREATE TABLE Vendas (
     Card_ID INT NOT NULL,
     Price FLOAT NOT NULL,
     Copies INT NOT NULL,
+    Description varchar(8000) NOT NULL,
 
     CONSTRAINT FK_Vendas_Users
         FOREIGN KEY (User_ID)
