@@ -4,11 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace YGOShop_AfonsoEliseu_2224082
 {
@@ -30,7 +31,7 @@ namespace YGOShop_AfonsoEliseu_2224082
             pictureBox1.ErrorImage = null;
             pictureBox1.Image = null;
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.BorderStyle = BorderStyle.FixedSingle;  
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
 
             try
             {
@@ -38,7 +39,16 @@ namespace YGOShop_AfonsoEliseu_2224082
                 {
                     conn.Open();
 
-                    string query = @"SELECT C.Nome, CI.Image_Cropped_URL FROM Cards C INNER JOIN CardImages CI  ON C.Card_ID = CI.Card_ID";
+
+                    string query = @"
+SELECT 
+            C.Nome, 
+            CI.Image_Cropped_URL,
+            CI.Image_ID
+        FROM Cards C 
+        INNER JOIN CardImages CI ON C.Card_ID = CI.Card_ID";
+
+
 
                     SqlDataAdapter da = new SqlDataAdapter(query, conn);
                     DataTable dt = new DataTable();
@@ -46,24 +56,24 @@ namespace YGOShop_AfonsoEliseu_2224082
 
                     comboBox1.DataSource = dt;
                     comboBox1.DisplayMember = "Nome";
-                    comboBox1.ValueMember = "Image_Cropped_URL";
-
+                    comboBox1.ValueMember = "Image_ID";
                 }
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("Erro ao conectar ao banco de dados: " + ex.Message, "Erro de Conexão", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Connection error with the database: " + ex.Message, "Connection error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocorreu um erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error has ocurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
         }
 
         public void Definições_Load(object sender, EventArgs e)
         {
-            
-            
+
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -75,7 +85,25 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
+
+            if (comboBox1.SelectedValue != null)
+            {
+
+                int imageId = Convert.ToInt32(comboBox1.SelectedValue);
+
+                DataRowView row = (DataRowView)comboBox1.SelectedItem;
+                string url = row["Image_Cropped_URL"].ToString();
+
+                MenuUsers menuUsers = new MenuUsers();
+                int result = menuUsers.register_image(imageId);
+            }
+            else
+            {
+                MessageBox.Show("Select an image first.");
+            }
+
+
         }
 
         private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
@@ -112,24 +140,41 @@ namespace YGOShop_AfonsoEliseu_2224082
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            try
+            if (comboBox1.SelectedItem != null)
             {
-                if (comboBox1.SelectedValue != null && comboBox1.SelectedValue != DBNull.Value)
+                DataRowView row = (DataRowView)comboBox1.SelectedItem;
+
+                // ✅ URL da imagem
+                string url = row["Image_Cropped_URL"].ToString();
+
+                // ✅ ID da imagem
+                int imageId = Convert.ToInt32(row["Image_ID"]);
+
+                // Mostrar imagem
+                try
                 {
-                    string url = comboBox1.SelectedValue.ToString();
                     pictureBox1.LoadAsync(url);
                 }
+                catch
+                {
+                    pictureBox1.Image = null;
+                }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro: " + ex.Message);
-            }
-
-
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login login = new Login();
+            login.Show();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

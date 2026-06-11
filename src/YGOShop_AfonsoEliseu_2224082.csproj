@@ -64,6 +64,12 @@
     <Compile Include="CreateA.Designer.cs">
       <DependentUpon>CreateA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Criar_Vendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Criar_Vendas.Designer.cs">
+      <DependentUpon>Criar_Vendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Definições.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,12 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuUsers.cs" />
+    <Compile Include="OrganizarVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrganizarVendas.Designer.cs">
+      <DependentUpon>OrganizarVendas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -105,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CreateA.resx">
       <DependentUpon>CreateA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Criar_Vendas.resx">
+      <DependentUpon>Criar_Vendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Definições.resx">
       <DependentUpon>Definições.cs</DependentUpon>
@@ -165,6 +180,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\Default_Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\VendasBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\Arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\Organizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\CardFramePlaceholder.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

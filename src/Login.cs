@@ -35,7 +35,7 @@ namespace YGOShop_AfonsoEliseu_2224082
             string password = textBox3.Text;
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Por favor, preencha todos os campos.", "Campos em branco", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Please fill in all the fields.", "Empty Fields", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
@@ -50,28 +50,31 @@ namespace YGOShop_AfonsoEliseu_2224082
                     int result = (int)cmd.ExecuteScalar();
                     if (result > 0)
                     {
-                        MenuUsers menuUsers = new MenuUsers(textBox2.Text, textBox3.Text);
-                        if (menuUsers.GetUsername(email, password) == 0)
+
+                        MenuUsers menuUsers = new MenuUsers();
+                        menuUsers.register(email, password);
+                        int num = menuUsers.GetUsername(email, password);
+                        if (num == 1)
                         {
-                            MessageBox.Show("Usuário não possui username", "Erro de Login", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            MessageBox.Show("Login Successful!!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            Menu menu = new Menu();
+                            menu.Show();
+                            this.Hide();
                         }
                         else
                         {
-                            MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Hide();
-                            Menu open = new Menu();
-                            open.Show();
+                            MessageBox.Show("User or ID not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else if (result == 0)
                     {
-                        MessageBox.Show("Email ou password incorretos.", "Erro de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Incorrect Email or Password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocorreu um erro: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error has ocurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -120,7 +123,7 @@ namespace YGOShop_AfonsoEliseu_2224082
         {
             see = !see;
 
-            // Quando see == true -> olho aberto e password visível
+            
             if (textBox3 != null)
                 textBox3.UseSystemPasswordChar = !see;
 
@@ -134,7 +137,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                 return;
             }
 
-            // Carrega a imagem sem bloquear o ficheiro
+           
             var previous = pictureBox3.Image;
             using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read))
             using (var img = Image.FromStream(fs))

@@ -37,23 +37,23 @@ namespace YGOShop_AfonsoEliseu_2224082
         {
             if (textBox1.Text == null)
             {
-                MessageBox.Show("Campo não preenchido: Nome", "Informação em falta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Field not filled: Name", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (textBox2.Text == null)
             {
-                MessageBox.Show("Campo não preenchido: Email", "Informação em falta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Field not filled: Email", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (textBox3.Text == null)
             {
-                MessageBox.Show("Campo não preenchido: Password", "Informação em falta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Field not filled: Password", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (!textBox2.Text.Contains("@"))
             {
-                MessageBox.Show("Necessário @ para o email ser válido.", "Email Inválido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("@ needed for email validation.", "Invalid Email", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (textBox3.Text.Length < 8)
             {
-                MessageBox.Show("Password tem de ter pelo menos 8 Caracteres.", "Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Password must contain atleast 8 characters.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
@@ -77,7 +77,7 @@ namespace YGOShop_AfonsoEliseu_2224082
 
                         insert.ExecuteNonQuery();
                     }
-                    MessageBox.Show("Conta Criada com Sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Account Created Successfully!!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sair = false;
                 this.Close();
                 Login login = new Login();
@@ -87,11 +87,11 @@ namespace YGOShop_AfonsoEliseu_2224082
                 {
                     if (ex.Number == 2627 || ex.Number == 2601)
                     {
-                        MessageBox.Show("Username ou email já existente.");
+                        MessageBox.Show("Username or email already exists.");
                     }
                     else
                     {
-                        MessageBox.Show($"Ocorreu um erro tente mais tarde", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An Error ocurred try again later", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
