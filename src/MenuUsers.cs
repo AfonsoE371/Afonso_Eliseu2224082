@@ -83,7 +83,7 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         public int register_image(int imageId)
         {
-            // ensure we have a valid user id
+
             if (Id == 0)
             {
                 MessageBox.Show("User ID is not set.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -106,7 +106,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                     "    VALUES (@UserID, @ImageID)\r\n" +
                     "END\r\n", conn))
                 {
-                    // Parameter names must match those used in the SQL above
+                    
                     cmd.Parameters.AddWithValue("@UserID", Id);
                     cmd.Parameters.AddWithValue("@ImageID", imageId);
 

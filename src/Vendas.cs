@@ -17,13 +17,12 @@ namespace YGOShop_AfonsoEliseu_2224082
         public Vendas()
         {
             InitializeComponent();
+            this.Load += Vendas_Load;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Vendas_Load(object sender, EventArgs e)
         {
-            panel1.AutoScroll = true;
-            panel1.HorizontalScroll.Enabled = false;
-            panel1.VerticalScroll.Enabled = true;
+
 
             MenuUsers menuUsers = new MenuUsers();
             userId = menuUsers.returnID();
@@ -40,7 +39,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand(
-                        @"SELECT v.Card_ID, c.Nome, v.Price, v.Copies
+                        @"SELECT v.Vendas_ID, v.Card_ID, c.Nome, v.Price, v.Copies
               FROM Vendas v
               JOIN Cards c ON v.Card_ID = c.Card_ID
               WHERE v.User_ID = @UserID", conn);
@@ -57,9 +56,10 @@ namespace YGOShop_AfonsoEliseu_2224082
                         string nome = reader["Nome"].ToString();
                         double preco = Convert.ToDouble(reader["Price"]);
                         int copias = Convert.ToInt32(reader["Copies"]);
-
-                        panel1.Controls.Add(CriarRegisto(id, nome, preco, copias));
+                        int vendaId = Convert.ToInt32(reader["Vendas_ID"]);
+                        panel1.Controls.Add(CriarRegisto(vendaId, id, nome, preco, copias));
                     }
+                    conn.Close();
                 }
             }
             catch (SqlException ex)
@@ -75,42 +75,75 @@ namespace YGOShop_AfonsoEliseu_2224082
         }
 
 
-        private Panel CriarRegisto(int id, string nome, double preco, int copias)
+        private Panel CriarRegisto(int vendaId, int id, string nome, double preco, int copias)
         {
             Panel item = new Panel();
-            item.BackColor = Color.White;
+            item.BackColor = Color.Gainsboro;
             item.Width = panel1.Width - 25;
             item.Height = 60;
-            item.Margin = new Padding(10);
+            item.Margin = new Padding(8);
             item.BorderStyle = BorderStyle.FixedSingle;
 
-            Label lblId = new Label();
-            lblId.Text = "CardId: " + id;
-            lblId.Left = 20;
-            lblId.Top = 20;
+            TableLayoutPanel table = new TableLayoutPanel();
+            table.Dock = DockStyle.Fill;
+            table.ColumnCount = 5;
+            table.RowCount = 1;
 
-            Label lblNome = new Label();
-            lblNome.Text = nome;
-            lblNome.Left = 150;
-            lblNome.Top = 20;
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100)); 
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 120)); 
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100)); 
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100)); 
+            table.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100)); 
 
-            Label lblPreco = new Label();
-            lblPreco.Text = "Price: " + preco;
-            lblPreco.Left = 350;
-            lblPreco.Top = 20;
+           
+            Label lblVendaId = new Label()
+            {
+                Text = "Sale ID: " + vendaId,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
 
-            Label lblCopias = new Label();
-            lblCopias.Text = "Copies: " + copias;
-            lblCopias.Left = 550;
-            lblCopias.Top = 20;
+            Label lblId = new Label()
+            {
+                Text = "CardId: " + id,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
 
-            item.Controls.Add(lblId);
-            item.Controls.Add(lblNome);
-            item.Controls.Add(lblPreco);
-            item.Controls.Add(lblCopias);
+            Label lblNome = new Label()
+            {
+                Text = nome,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft,
+                AutoEllipsis = true
+            };
+
+            Label lblPreco = new Label()
+            {
+                Text = "Price: " + preco,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+            Label lblCopias = new Label()
+            {
+                Text = "Copies: " + copias,
+                Dock = DockStyle.Fill,
+                TextAlign = ContentAlignment.MiddleLeft
+            };
+
+           
+            table.Controls.Add(lblVendaId, 0, 0);
+            table.Controls.Add(lblId, 1, 0);
+            table.Controls.Add(lblNome, 2, 0);
+            table.Controls.Add(lblPreco, 3, 0);
+            table.Controls.Add(lblCopias, 4, 0);
+
+            item.Controls.Add(table);
 
             return item;
         }
+
 
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -131,6 +164,26 @@ namespace YGOShop_AfonsoEliseu_2224082
             this.Hide();
             Criar_Vendas create = new Criar_Vendas();
             create.Show();
+        }
+
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

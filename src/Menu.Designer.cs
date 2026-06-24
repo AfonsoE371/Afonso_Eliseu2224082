@@ -109,6 +109,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox6.Image = global::YGOShop_AfonsoEliseu_2224082.Properties.Resources.Designer;
             this.pictureBox6.Location = new System.Drawing.Point(837, 446);
             this.pictureBox6.Name = "pictureBox6";

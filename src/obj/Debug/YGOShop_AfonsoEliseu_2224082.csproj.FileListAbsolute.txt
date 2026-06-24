@@ -15,3 +15,4 @@ C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Comprar.resources
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Definições.resources
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Vendas.resources
+C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Criar_Vendas.resources

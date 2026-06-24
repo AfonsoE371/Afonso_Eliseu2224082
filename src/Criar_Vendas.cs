@@ -1,4 +1,5 @@
 ﻿using System;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,9 @@ namespace YGOShop_AfonsoEliseu_2224082
         int? def = 0;
         bool isCardFound = false;
         string imageUrl = null;
+
+        int right = 0;
+
 
 
         public Criar_Vendas()
@@ -54,7 +58,7 @@ namespace YGOShop_AfonsoEliseu_2224082
             textBox10.Text = null;
             textBox11.Text = null;
             richTextBox3.Text = null;
-          
+
         }
 
 
@@ -77,25 +81,96 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool valid = true;
+
+
+
+          
+            if (string.IsNullOrWhiteSpace(textBox6.Text) || !int.TryParse(textBox6.Text, out int pre))
+            {
+                MessageBox.Show("Please enter a valid number of copies.", "Invalid Copies", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                valid = false;
+            }
 
             if (id == 0)
             {
-                MessageBox.Show("Card not present please choose one", "Card not selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Card not present, please choose one.", "Card not selected", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                valid = false;
             }
-            else if (id == 0 && textBox1.Text == null)
+            else if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Please Confirm your selection for the card to be registered", "Card unconfirmed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please confirm your card selection.", "Card unconfirmed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                valid = false;
             }
 
-
-
-            if (textBox6.Text == null)
+            
+            if (string.IsNullOrWhiteSpace(textBox8.Text) || !float.TryParse(textBox8.Text, out float prer))
             {
-                MessageBox.Show("Please attribute a price to your sale.", "No price", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Please enter a valid price.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                valid = false;
+            }
+            else if (prer <= 0)
+            {
+                MessageBox.Show("Price must be greater than 0.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                valid = false;
             }
             else
             {
-                MessageBox.Show("Would you like to use our delivery services (we will take 1€ from all your sales).", "Delivery Service", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (MessageBox.Show(
+                    "Would you like to use our delivery services (we will take 1€ from all your sales).", "Delivery Service", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    right = 1;
+                }
+                else
+                {
+                    right = 0;
+                }
+            }
+
+
+            if (valid == false)
+            {
+
+            }
+            else
+            {
+                if (MessageBox.Show("Preparing to post the sale, is everything correct(this sale can be deleted anytime in Live Sales)", "Are you sure?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (SqlConnection conn = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = YGOShopDB; Trusted_Connection = True"))
+                    {
+                        conn.Open();
+                        using (SqlCommand cmd = new SqlCommand("INSERT INTO Vendas (User_ID, Card_ID, Price, Copies, Comentar, Deliv) Values (@User_ID, @Card_ID, @Price, @Copies, @Comentar, @Deliv)", conn))
+                        {
+                            cmd.Parameters.AddWithValue("@User_ID", new MenuUsers().returnID());
+                            cmd.Parameters.AddWithValue("@Card_ID", id);
+                            cmd.Parameters.AddWithValue("@Price", Convert.ToDouble(textBox8.Text));
+                            cmd.Parameters.AddWithValue("@Copies", Convert.ToInt32(textBox6.Text));
+                            cmd.Parameters.AddWithValue("@Comentar", richTextBox1.Text);
+                            cmd.Parameters.AddWithValue("@Deliv", right);
+                            try
+                            {
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Sale posted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Criar_Vendas_Load();
+                                
+                            }
+                            catch (SqlException exe)
+                            {
+                                MessageBox.Show("An error has ocurred in the database: " + exe.Message, "Sql Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("An error has ocurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                    }
+                   
+                }
+                else
+                {
+
+                }
             }
         }
 
