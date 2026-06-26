@@ -1,3 +1,6 @@
+Create Database YGOShopDB;
+go
+
 USE YGOShopDB;
 GO
 
@@ -60,8 +63,8 @@ CREATE TABLE Vendas (
     Card_ID INT NOT NULL,
     Price FLOAT NOT NULL,
     Copies INT NOT NULL,
-    Deliv BIT NOT NULL,
-    Description varchar(8000) NOT NULL,
+    Comentar varchar(5000) NOT NULL,
+    Deliv bit NOT NULL 
 
     CONSTRAINT FK_Vendas_Users
         FOREIGN KEY (User_ID)
