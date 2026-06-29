@@ -415,6 +415,7 @@
             this.MinimumSize = new System.Drawing.Size(1008, 617);
             this.Name = "Criar_Vendas";
             this.Text = "Criar_Vendas";
+            this.Load += new System.EventHandler(this.Criar_Vendas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

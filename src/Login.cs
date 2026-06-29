@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 
 namespace YGOShop_AfonsoEliseu_2224082
 {
@@ -123,30 +124,29 @@ namespace YGOShop_AfonsoEliseu_2224082
         {
             see = !see;
 
-            
             if (textBox3 != null)
                 textBox3.UseSystemPasswordChar = !see;
 
-            string folder = @"C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\Imagens";
-            string fileName = see ? "Eye.png" : "EyeClosed.png";
-            string path = System.IO.Path.Combine(folder, fileName);
+           
+            string basePath = Application.StartupPath;
+            string imageFolder = Path.Combine(basePath, "Imagens");
 
-            if (!System.IO.File.Exists(path))
+            string fileName = see ? "Eye.png" : "EyeClosed.png";
+            string path = Path.Combine(imageFolder, fileName);
+
+            if (!File.Exists(path))
             {
                 MessageBox.Show($"Image not found: {path}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
            
-            var previous = pictureBox3.Image;
-            using (var fs = new System.IO.FileStream(path, System.IO.FileMode.Open, System.IO.FileAccess.Read, System.IO.FileShare.Read))
-            using (var img = Image.FromStream(fs))
-            {
-                pictureBox3.Image = new Bitmap(img);
-            }
-            previous?.Dispose();
-            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.Image?.Dispose();
+            pictureBox3.Image = null;
 
+            
+            pictureBox3.Image = Image.FromFile(path);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
 
 
 

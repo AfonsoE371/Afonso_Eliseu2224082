@@ -156,8 +156,11 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.panel1);
+            this.MaximumSize = new System.Drawing.Size(778, 457);
+            this.MinimumSize = new System.Drawing.Size(778, 457);
             this.Name = "CreateA";
             this.Text = "CreateA";
+            this.Load += new System.EventHandler(this.CreateA_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

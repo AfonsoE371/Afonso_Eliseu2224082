@@ -28,6 +28,18 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         }
 
+
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                new Login().Show();
+            }
+
+            base.OnFormClosing(e);
+        }
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -62,7 +74,7 @@ namespace YGOShop_AfonsoEliseu_2224082
 
             if (sair == true)
             {
-                
+
                 try
                 {
                     SqlConnection conn = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = YGOShopDB; Trusted_Connection = True");
@@ -79,9 +91,8 @@ namespace YGOShop_AfonsoEliseu_2224082
                     }
                     MessageBox.Show("Account Created Successfully!!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     sair = false;
-                this.Close();
-                Login login = new Login();
-                login.Show();
+                    this.Close();
+
                 }
                 catch (SqlException ex)
                 {
@@ -95,15 +106,19 @@ namespace YGOShop_AfonsoEliseu_2224082
                     }
                 }
             }
-           
+
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            
             this.Close();
+
+        }
+
+        private void CreateA_Load(object sender, EventArgs e)
+        {
 
         }
     }

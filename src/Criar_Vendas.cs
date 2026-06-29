@@ -38,6 +38,23 @@ namespace YGOShop_AfonsoEliseu_2224082
 
             MenuUsers menuUsers = new MenuUsers();
             textBox7.Text = menuUsers.returnUsername();
+            richTextBox1.WordWrap = true;
+            richTextBox1.ScrollBars = RichTextBoxScrollBars.Vertical;
+            richTextBox2.WordWrap = true;
+            richTextBox2.ScrollBars = RichTextBoxScrollBars.Vertical;
+            richTextBox3.WordWrap = true;
+            richTextBox3.ScrollBars = RichTextBoxScrollBars.Vertical;
+
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                new Vendas().Show();
+            }
+
+            base.OnFormClosing(e);   
         }
 
 
@@ -65,8 +82,7 @@ namespace YGOShop_AfonsoEliseu_2224082
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
-            Vendas vendas = new Vendas();
-            vendas.Show();
+           
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -85,7 +101,7 @@ namespace YGOShop_AfonsoEliseu_2224082
 
 
 
-          
+
             if (string.IsNullOrWhiteSpace(textBox6.Text) || !int.TryParse(textBox6.Text, out int pre))
             {
                 MessageBox.Show("Please enter a valid number of copies.", "Invalid Copies", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -103,7 +119,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                 valid = false;
             }
 
-            
+
             if (string.IsNullOrWhiteSpace(textBox8.Text) || !float.TryParse(textBox8.Text, out float prer))
             {
                 MessageBox.Show("Please enter a valid price.", "Invalid Price", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -153,7 +169,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                                 cmd.ExecuteNonQuery();
                                 MessageBox.Show("Sale posted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 Criar_Vendas_Load();
-                                
+
                             }
                             catch (SqlException exe)
                             {
@@ -165,7 +181,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                             }
                         }
                     }
-                   
+
                 }
                 else
                 {
@@ -364,6 +380,11 @@ namespace YGOShop_AfonsoEliseu_2224082
             {
                 MessageBox.Show("An error has ocurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+        }
+
+        private void Criar_Vendas_Load(object sender, EventArgs e)
+        {
 
         }
     }

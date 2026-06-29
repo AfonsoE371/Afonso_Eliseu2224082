@@ -16,3 +16,44 @@ C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Definições.resources
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Vendas.resources
 C:\Users\2224082\OneDrive - Escola Digital\Projeto Final C#\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Criar_Vendas.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.AssemblyReference.cache
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.exe
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.pdb
+G:\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe.config
+G:\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe
+G:\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.pdb
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Coleção.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Comprar.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.CreateA.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Criar_Vendas.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Definições.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Login.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Menu.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Properties.Resources.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Vendas.resources
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.GenerateResource.cache
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.CoreCompileInputs.cache
+G:\YGOShop_AfonsoEliseu_2224082\bin\Debug\Imagens\Eye.png
+G:\YGOShop_AfonsoEliseu_2224082\bin\Debug\Imagens\EyeClosed.png
+G:\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.BuyA.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\bin\Debug\Imagens\EyeClosed.png
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\bin\Debug\Imagens\Eye.png
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe.config
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.exe
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\bin\Debug\YGOShop_AfonsoEliseu_2224082.pdb
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.AssemblyReference.cache
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.exe.config
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.BuyA.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Coleção.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Comprar.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.CreateA.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Criar_Vendas.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Definições.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Login.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Menu.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Properties.Resources.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.Vendas.resources
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.GenerateResource.cache
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.csproj.CoreCompileInputs.cache
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.exe
+C:\Users\2224082\Desktop\YGOShop_AfonsoEliseu_2224082\obj\Debug\YGOShop_AfonsoEliseu_2224082.pdb

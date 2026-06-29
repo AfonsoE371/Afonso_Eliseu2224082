@@ -17,6 +17,15 @@ namespace YGOShop_AfonsoEliseu_2224082
     {
         public string url;
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (!fecharForcado && e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;
+                return;
+            }
+        }
+        private bool fecharForcado = false;
         public Definições()
         {
 
@@ -24,10 +33,10 @@ namespace YGOShop_AfonsoEliseu_2224082
             Utilidades utilidades = new Utilidades();
             utilidades.arredondar(pictureBox1);
 
-            // attach the actual Paint handler (not a null field)
+           
             pictureBox1.Paint += pictureBox1_Paint_1;
 
-            // Ensure the picture box starts blank and scaled
+           
             pictureBox1.ErrorImage = null;
             pictureBox1.Image = null;
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -78,9 +87,9 @@ SELECT
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Menu menu = new Menu();
-            menu.Show();
+            fecharForcado = true;
             this.Close();
+            new Menu().Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -111,13 +120,11 @@ SELECT
 
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
 
-            // If load failed or was cancelled, remove any image (do not show ErrorImage)
             if (e.Error != null || e.Cancelled)
             {
-                // Clear current image so nothing is shown
                 pictureBox1.Image = null;
 
-                // Also clear the ErrorImage so PictureBox won't draw it later (optional)
+            
                 pictureBox1.ErrorImage = null;
                 return;
             }
@@ -128,7 +135,7 @@ SELECT
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
-            using (var pen = new Pen(Color.Black, 2f)) // adjust color/width as needed
+            using (var pen = new Pen(Color.Black, 2f))
             {
                 float half = pen.Width / 2f;
                 float w = Math.Max(0, pictureBox1.ClientSize.Width - pen.Width);
@@ -144,13 +151,10 @@ SELECT
             {
                 DataRowView row = (DataRowView)comboBox1.SelectedItem;
 
-                // ✅ URL da imagem
                 string url = row["Image_Cropped_URL"].ToString();
 
-                // ✅ ID da imagem
                 int imageId = Convert.ToInt32(row["Image_ID"]);
 
-                // Mostrar imagem
                 try
                 {
                     pictureBox1.LoadAsync(url);
@@ -169,12 +173,18 @@ SELECT
 
         private void button3_Click(object sender, EventArgs e)
         {
+
+            fecharForcado = true;
             this.Close();
-            Login login = new Login();
-            login.Show();
+            new Login().Show();
         }
 
         private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Definições_Load_1(object sender, EventArgs e)
         {
 
         }

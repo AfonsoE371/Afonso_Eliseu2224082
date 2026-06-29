@@ -27,10 +27,25 @@ namespace YGOShop_AfonsoEliseu_2224082
         }
 
         public string returnUsername()
-        { return Username; }    
+        { return Username; }
 
         public int returnID()
         { return Id; }
+
+
+        public string GetUsernameBuy(int userID)
+        {
+            using (SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=YGOShopDB;Trusted_Connection=True"))
+            {
+                conn.Open();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT Username FROM Users WHERE User_ID = @ID", conn))
+                {
+                    cmd.Parameters.AddWithValue("@ID", userID);
+                    return cmd.ExecuteScalar().ToString();
+                }
+            }
+        }
 
         public int GetUsername(string email, string password)
         {
@@ -83,52 +98,53 @@ namespace YGOShop_AfonsoEliseu_2224082
 
         public int register_image(int imageId)
         {
-
             if (Id == 0)
             {
                 MessageBox.Show("User ID is not set.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
 
-            using (SqlConnection conn = new SqlConnection("Server = (localdb)\\MSSQLLocalDB; Database = YGOShopDB; Trusted_Connection = True"))
+            try
             {
-                conn.Open();
-                using (SqlCommand cmd = new SqlCommand(
-                    "IF EXISTS (SELECT 1 FROM UserProfileImage WHERE User_ID = @UserID)\r\n" +
-                    "BEGIN\r\n" +
-                    "    UPDATE UserProfileImage\r\n" +
-                    "    SET Image_ID = @ImageID\r\n" +
-                    "    WHERE User_ID = @UserID\r\n" +
-                    "END\r\n" +
-                    "ELSE\r\n" +
-                    "BEGIN\r\n" +
-                    "    INSERT INTO UserProfileImage (User_ID, Image_ID)\r\n" +
-                    "    VALUES (@UserID, @ImageID)\r\n" +
-                    "END\r\n", conn))
+                using (SqlConnection conn = new SqlConnection("Server=(localdb)\\MSSQLLocalDB;Database=YGOShopDB;Trusted_Connection=True"))
                 {
-                    
-                    cmd.Parameters.AddWithValue("@UserID", Id);
-                    cmd.Parameters.AddWithValue("@ImageID", imageId);
+                    conn.Open();
 
-                    try
+                    using (SqlCommand cmd = new SqlCommand(
+                        "IF EXISTS (SELECT 1 FROM UserProfileImage WHERE User_ID = @UserID)\r\n" +
+                        "BEGIN\r\n" +
+                        "    UPDATE UserProfileImage\r\n" +
+                        "    SET Image_ID = @ImageID\r\n" +
+                        "    WHERE User_ID = @UserID\r\n" +
+                        "END\r\n" +
+                        "ELSE\r\n" +
+                        "BEGIN\r\n" +
+                        "    INSERT INTO UserProfileImage (User_ID, Image_ID)\r\n" +
+                        "    VALUES (@UserID, @ImageID)\r\n" +
+                        "END\r\n", conn))
                     {
+                        cmd.Parameters.AddWithValue("@UserID", Id);
+                        cmd.Parameters.AddWithValue("@ImageID", imageId);
+
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Image registed successfully!", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        MessageBox.Show("Image registered successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return 1;
-                    }
-                    catch (SqlException ex)
-                    {
-                        MessageBox.Show("Registration error: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return 0;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("An error has ocurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return 0;
                     }
                 }
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Database error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error has occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
         }
+
 
 
 
