@@ -14,7 +14,7 @@ O projeto tem como objetivo ajudar jogadores de yugioh a obterem cartas que nece
 /src Código fonte do projeto
 
 
-# Requisitos
+# Requisitos de Execução
   1. Linguagem de Programação: C# (.NET Framework 4.8)
   2. Interface: Windows Forms
   3. Base de Dados: SQL Server
