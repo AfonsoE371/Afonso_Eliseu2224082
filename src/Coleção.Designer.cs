@@ -189,7 +189,7 @@
             "11",
             "12",
             "13"});
-            this.comboBox1.Location = new System.Drawing.Point(112, 279);
+            this.comboBox1.Location = new System.Drawing.Point(122, 274);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(108, 22);
             this.comboBox1.TabIndex = 33;
@@ -220,7 +220,7 @@
             "Link",
             "Spell",
             "Trap"});
-            this.checkedListBox1.Location = new System.Drawing.Point(100, 66);
+            this.checkedListBox1.Location = new System.Drawing.Point(122, 67);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(120, 89);
             this.checkedListBox1.TabIndex = 31;
@@ -231,9 +231,9 @@
             this.label1.Font = new System.Drawing.Font("MatrixIIOT-Bold", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(6, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(110, 16);
             this.label1.TabIndex = 30;
-            this.label1.Text = "Card Type:";
+            this.label1.Text = "Monster Frame:";
             // 
             // comboBox8
             // 
@@ -248,7 +248,7 @@
             "Ritual",
             "Continuous",
             "Counter"});
-            this.comboBox8.Location = new System.Drawing.Point(112, 172);
+            this.comboBox8.Location = new System.Drawing.Point(122, 172);
             this.comboBox8.Name = "comboBox8";
             this.comboBox8.Size = new System.Drawing.Size(108, 22);
             this.comboBox8.TabIndex = 29;
@@ -295,7 +295,7 @@
             "Cyberse",
             "Divine-Beast",
             "Illusion"});
-            this.comboBox3.Location = new System.Drawing.Point(112, 207);
+            this.comboBox3.Location = new System.Drawing.Point(122, 207);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(108, 22);
             this.comboBox3.TabIndex = 27;
@@ -312,7 +312,7 @@
             "WIND",
             "FIRE",
             "WATER"});
-            this.comboBox2.Location = new System.Drawing.Point(112, 248);
+            this.comboBox2.Location = new System.Drawing.Point(122, 243);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(108, 22);
             this.comboBox2.TabIndex = 26;
@@ -365,7 +365,7 @@
             this.MaximumSize = new System.Drawing.Size(995, 578);
             this.MinimumSize = new System.Drawing.Size(995, 578);
             this.Name = "Coleção";
-            this.Text = "Colection";
+            this.Text = "Collection";
             this.Load += new System.EventHandler(this.Coleção_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
