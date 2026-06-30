@@ -25,6 +25,7 @@ namespace YGOShop_AfonsoEliseu_2224082
                 return;
             }
         }
+
         private bool fecharForcado = false;
         public Definições()
         {

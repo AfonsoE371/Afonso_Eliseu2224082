@@ -206,14 +206,15 @@ namespace YGOShop_AfonsoEliseu_2224082
                 MenuUsers menuUsers = new MenuUsers();  
                 int currentUserID = menuUsers.returnID();
 
-                string querySales = @"
+                string querySales = $@"
 SELECT Vendas.Vendas_ID, Vendas.Card_ID, Vendas.Price, Vendas.Copies, 
        Users.Username, Cards.Nome, CardImages.Image_URL
 FROM Vendas
 JOIN Users ON Users.User_ID = Vendas.User_ID
 JOIN Cards ON Cards.Card_ID = Vendas.Card_ID
 JOIN CardImages ON CardImages.Card_ID = Cards.Card_ID
-WHERE Vendas.User_ID <> @CurrentUserID";
+WHERE Vendas.User_ID <> @CurrentUserID
+AND Vendas.Card_ID IN ({ids})"; ;
 
 
 

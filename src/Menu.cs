@@ -58,8 +58,8 @@ namespace YGOShop_AfonsoEliseu_2224082
                         saldoAtual = Convert.ToDecimal(result);
                 }
 
-                // mostrar na textbox
-                textBox1.Text = saldoAtual.ToString("0.00");
+             
+                textBox1.Text = saldoAtual.ToString("0.00€");
 
 
 
